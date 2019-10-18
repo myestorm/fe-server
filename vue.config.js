@@ -2,6 +2,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const glob = require('glob')
 const path = require('path')
 
+const proxys = require('./proxys/index')
+
 // 统一配置多页
 const pages = {}
 glob.sync('./src/pages/**/*.json').forEach((filePath) => {
@@ -28,13 +30,7 @@ module.exports = {
   productionSourceMap: !(process.env.NODE_ENV === 'production'),
   devServer: {
     port: 8080,
-    proxy: {
-      '/openplatform': {
-        target: 'http://127.0.0.1:80',
-        ws: true,
-        changeOrigin: true
-      }
-    } // 配置开发环境 URL 便于本地开发调试
+    proxy: proxys // 配置开发环境 URL 便于本地开发调试
   },
   chainWebpack: (config) => {
     config.plugins.delete('named-chunks')
