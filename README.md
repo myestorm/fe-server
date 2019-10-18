@@ -81,9 +81,9 @@ export default {
 ```
 
 > 如何改回单页面？
-1. 将vue.config.spa.js 改成 vue.config.js; 
-2. 删除src/pages目录; 
-3. public/index_spa.html 改成 index.html
+> 1. 将vue.config.spa.js 改成 vue.config.js; 
+> 2. 删除src/pages目录; 
+> 3. public/index_spa.html 改成 index.html
 
 ## 如何建立一个代理？
 ```
